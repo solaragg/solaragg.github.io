@@ -267,30 +267,40 @@ async function downloadLatestSolara(event) {
 
     try {
         const response = await fetch(
-            "https://api.github.com/repos/solaragg/solaragg.github.io/releases/tags/latest",
+            "https://api.github.com/repos/solaragg/solaragg.github.io/releases/latest",
             {
                 headers: {
                     "Accept": "application/vnd.github+json"
-                }
+                },
+                cache: "no-store"
             }
         );
 
         if (!response.ok) {
-            throw new Error("GitHub API error: " + response.status);
+            throw new Error("GitHub API HTTP " + response.status);
         }
 
         const release = await response.json();
 
-        // Ищем последний пронумерованный билд:
-        // SolaraV3_123456.zip
         const assets = release.assets || [];
-        const builds = assets
-            .filter(asset => /^SolaraV3_\d{6}\.zip$/.test(asset.name))
-            .sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true }));
+
+        // Ищем пронумерованный архив:
+        // SolaraV3_123456.zip
+        const builds = assets.filter(asset =>
+            /^SolaraV3_\d{6}\.zip$/i.test(asset.name)
+        );
 
         if (builds.length === 0) {
-            throw new Error("SolaraV3_XXXXXX.zip не найден в Release");
+            throw new Error(
+                "В Release нет файла SolaraV3_XXXXXX.zip"
+            );
         }
+
+        // Если вдруг осталось несколько файлов —
+        // выбираем последний загруженный.
+        builds.sort((a, b) =>
+            new Date(b.created_at) - new Date(a.created_at)
+        );
 
         const latestBuild = builds[0];
 
@@ -301,12 +311,15 @@ async function downloadLatestSolara(event) {
             });
         }
 
-        // Переходим именно на файл с цифрами.
         window.location.href = latestBuild.browser_download_url;
 
     } catch (error) {
-        console.error("Download error:", error);
-        alert("Не удалось найти последний билд Solara.");
+        console.error("Solara download error:", error);
+
+        alert(
+            "Не удалось найти последний билд Solara.\n\n" +
+            "Ошибка: " + error.message
+        );
     }
 }
 </script>
