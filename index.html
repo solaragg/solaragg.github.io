@@ -41,9 +41,11 @@
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm" href="#" onclick="downloadLatestSolara(event)">
-        <span>Download</span>
-      </a>
+      <a class="btn btn-primary btn-sm"
+   href="#"
+   onclick="downloadLatestSolara(event)">
+    <span>Download</span>
+</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -69,7 +71,9 @@
       <h2 class="hero-download-label">Download</h2>
       <p class="hero-meta">Free · Windows 10 and 11 · v0.1.7</p>
 
-      <a class="download-card download-card-primary" href="#" onclick="downloadLatestSolara(event)">
+      <a class="download-card download-card-primary"
+   href="#"
+   onclick="downloadLatestSolara(event)">
         <span class="badge">Recommended</span>
         <div class="download-card-media">
           <img src="./assets/screenshot.png" alt="Solara application window showing the dashboard interface" loading="lazy">
@@ -263,47 +267,34 @@
 
 <script>
 async function downloadLatestSolara(event) {
-    event.preventDefault();
+    if (event) {
+        event.preventDefault();
+    }
 
     try {
-        const response = await fetch(
-            "https://api.github.com/repos/solaragg/solaragg.github.io/releases/latest",
-            {
-                headers: {
-                    "Accept": "application/vnd.github+json"
-                },
-                cache: "no-store"
-            }
+        const owner = "solaragg";
+        const repo = "solaragg.github.io";
+
+        const res = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/releases/latest`
         );
 
-        if (!response.ok) {
-            throw new Error("GitHub API HTTP " + response.status);
+        if (!res.ok) {
+            throw new Error("GitHub API HTTP " + res.status);
         }
 
-        const release = await response.json();
+        const release = await res.json();
 
-        const assets = release.assets || [];
-
-        // Ищем пронумерованный архив:
-        // SolaraV3_123456.zip
-        const builds = assets.filter(asset =>
-            /^SolaraV3_\d{6}\.zip$/i.test(asset.name)
+        const asset = release.assets.find(a =>
+            /^SolaraV3_\d{6}\.zip$/i.test(a.name)
         );
 
-        if (builds.length === 0) {
-            throw new Error(
-                "В Release нет файла SolaraV3_XXXXXX.zip"
-            );
+        if (!asset) {
+            alert("Файл SolaraV3_XXXXXX.zip не найден");
+            return;
         }
 
-        // Если вдруг осталось несколько файлов —
-        // выбираем последний загруженный.
-        builds.sort((a, b) =>
-            new Date(b.created_at) - new Date(a.created_at)
-        );
-
-        const latestBuild = builds[0];
-
+        // Отправляем событие статистики
         if (typeof goatcounter !== "undefined" && goatcounter.count) {
             goatcounter.count({
                 path: "download-windows-zip",
@@ -311,10 +302,11 @@ async function downloadLatestSolara(event) {
             });
         }
 
-        window.location.href = latestBuild.browser_download_url;
+        // Скачать найденный последний билд
+        window.location.href = asset.browser_download_url;
 
     } catch (error) {
-        console.error("Solara download error:", error);
+        console.error("Download error:", error);
 
         alert(
             "Не удалось найти последний билд Solara.\n\n" +
