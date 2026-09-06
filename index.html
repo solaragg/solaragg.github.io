@@ -41,8 +41,7 @@
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm" href="https://github.com/solaragg/solaragg.github.io/releases/download/latest/SolaraV3.zip" download
-        onclick="goatcounter.count({path: 'download-windows-zip', event: true})">
+      <a class="btn btn-primary btn-sm" href="#" onclick="downloadLatestSolara(event)">
         <span>Download</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
@@ -70,8 +69,7 @@
       <h2 class="hero-download-label">Download</h2>
       <p class="hero-meta">Free · Windows 10 and 11 · v0.1.7</p>
 
-      <a class="download-card download-card-primary" href="https://github.com/solaragg/solaragg.github.io/raw/refs/heads/main/downloads/SolaraV3.zip" download
-        onclick="goatcounter.count({path: 'download-windows-zip', event: true})">
+      <a class="download-card download-card-primary" href="#" onclick="downloadLatestSolara(event)">
         <span class="badge">Recommended</span>
         <div class="download-card-media">
           <img src="./assets/screenshot.png" alt="Solara application window showing the dashboard interface" loading="lazy">
@@ -87,8 +85,7 @@
         </div>
       </a>
 
-      <a class="download-card download-card-secondary" href="https://github.com/solaragg/solaragg.github.io/releases/download/latest/SolaraV3.zip" download
-        onclick="goatcounter.count({path: 'download-windows-zip', event: true})">
+      <a class="download-card download-card-secondary" href="#" onclick="downloadLatestSolara(event)">
         <div class="download-card-text">
           <span class="download-card-title">Legacy Solara</span>
           <span class="download-card-desc">Manual installation · for older systems</span>
@@ -262,6 +259,57 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+async function downloadLatestSolara(event) {
+    event.preventDefault();
+
+    try {
+        const response = await fetch(
+            "https://api.github.com/repos/solaragg/solaragg.github.io/releases/tags/latest",
+            {
+                headers: {
+                    "Accept": "application/vnd.github+json"
+                }
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("GitHub API error: " + response.status);
+        }
+
+        const release = await response.json();
+
+        // Ищем последний пронумерованный билд:
+        // SolaraV3_123456.zip
+        const assets = release.assets || [];
+        const builds = assets
+            .filter(asset => /^SolaraV3_\d{6}\.zip$/.test(asset.name))
+            .sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true }));
+
+        if (builds.length === 0) {
+            throw new Error("SolaraV3_XXXXXX.zip не найден в Release");
+        }
+
+        const latestBuild = builds[0];
+
+        if (typeof goatcounter !== "undefined" && goatcounter.count) {
+            goatcounter.count({
+                path: "download-windows-zip",
+                event: true
+            });
+        }
+
+        // Переходим именно на файл с цифрами.
+        window.location.href = latestBuild.browser_download_url;
+
+    } catch (error) {
+        console.error("Download error:", error);
+        alert("Не удалось найти последний билд Solara.");
+    }
+}
+</script>
 
 <script src="./script.js"></script>
 </body>
