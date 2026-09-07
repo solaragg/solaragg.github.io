@@ -740,7 +740,30 @@ section {
   transition: color 0.2s var(--ease);
 }
 .footer-links a:hover { color: var(--text-muted); }
+.hero-download-label {
+  display: none;
+}
 
+.hero-download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 12px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hero-download-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
 /* ============================================
    Responsive
    ============================================ */
