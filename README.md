@@ -2,54 +2,26 @@
 
 <div align="center">
 
-<img src="assets/screenshot.png" alt="Solara" width="900">
+  <h3>Modern. Fast. Reliable.</h3>
 
-<br><br>
+  <p>
+    A powerful execution environment with a clean interface,<br>
+    smooth animations and a seamless user experience.
+  </p>
 
-<h2>Modern. Fast. Reliable.</h2>
+  <br>
 
-<p>
-A modern execution environment built for speed,<br>
-simplicity and a seamless user experience.
-</p>
+  <a href="https://solaragg.github.io">
+    <img src="https://img.shields.io/badge/🌐%20LIVE%20DEMO-8A2BE2?style=for-the-badge">
+  </a>
+  &nbsp;
+  <a href="https://solaragg.github.io">
+    <img src="https://img.shields.io/badge/⬇️%20DOWNLOAD-00C853?style=for-the-badge">
+  </a>
 
-<br>
+<br><br><br>
 
-<a href="https://solaragg.github.io">
-  <img src="https://img.shields.io/badge/🌐%20OPEN%20WEBSITE-8A2BE2?style=for-the-badge">
-</a>
-
-  
-
-<a href="https://solaragg.github.io">
-  <img src="https://img.shields.io/badge/⬇️%20DOWNLOAD%20SOLARA-00C853?style=for-the-badge">
-</a>
-
-<br><br>
-
-</div>
-
----
-
-## 🚀 Download
-
-<div align="center">
-
-### Get the latest version of Solara
-
-The latest release is always available through the official website.
-
-<br>
-
-<a href="https://solaragg.github.io">
-  <img src="https://img.shields.io/badge/⬇️%20DOWNLOAD%20LATEST%20VERSION-8A2BE2?style=for-the-badge&logo=github&logoColor=white">
-</a>
-
-<br><br>
-
-<sub>
-The download page automatically provides the latest available version.
-</sub>
+  <img src="assets/screenshot.png" alt="Solara Interface" width="900">
 
 </div>
 
@@ -57,20 +29,33 @@ The download page automatically provides the latest available version.
 
 ## ✨ About
 
-**Solara** is a modern and lightweight execution environment focused on:
+**Solara** is a modern and lightweight execution environment focused on performance, simplicity and a clean user interface.
 
-* ⚡ **Performance** — fast and responsive
-* 🎨 **Clean UI** — simple and modern interface
-* 🚀 **Smooth Experience** — fluid animations and interactions
-* 💻 **Lightweight** — designed to stay fast and efficient
+Built with a responsive design, smooth animations and an easy-to-use experience for maximum efficiency.
 
 ---
 
-## 🖥️ Preview
+## 📥 Download
 
 <div align="center">
 
-<img src="assets/screenshot.png" alt="Solara Interface" width="850">
+  <p>Download the latest version of Solara V3.</p>
+
+  <br>
+
+  <a href="https://solaragg.github.io">
+    <img src="https://img.shields.io/badge/⬇️%20DOWNLOAD%20SOLARA%20V3-8A2BE2?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+
+</div>
+
+---
+
+## 🖼️ Preview
+
+<div align="center">
+
+  <img src="assets/screenshot.png" alt="Solara Preview" width="850">
 
 </div>
 
@@ -80,41 +65,11 @@ The download page automatically provides the latest available version.
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-&nbsp;
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-&nbsp;
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-
-</div>
-
----
-
-## 📦 Releases
-
-New versions of Solara are published through the official download page.
-
-<div align="center">
-
-<a href="https://solaragg.github.io">
-  <img src="https://img.shields.io/badge/VIEW%20LATEST%20RELEASE-8A2BE2?style=for-the-badge">
-</a>
-
-</div>
-
----
-
-## 🌐 Official Website
-
-<div align="center">
-
-<a href="https://solaragg.github.io">
-  <img src="https://img.shields.io/badge/solaragg.github.io-111111?style=for-the-badge&logo=googlechrome&logoColor=white">
-</a>
-
-<br><br>
-
-**All downloads and the latest version are available on the official website.**
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+  &nbsp;
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  &nbsp;
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 
 </div>
 
@@ -122,15 +77,7 @@ New versions of Solara are published through the official download page.
 
 <div align="center">
 
-<br>
-
-# ⚡ SOLARA
-
-<sub>Modern. Fast. Reliable.</sub>
-
-<br><br>
-
-<a href="https://solaragg.github.io">Official Website</a>
+<b>⚡ SOLARA</b>
 
 <br><br>
 
