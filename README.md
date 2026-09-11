@@ -15,7 +15,7 @@
     <img src="https://img.shields.io/badge/🌐%20LIVE%20DEMO-8A2BE2?style=for-the-badge">
   </a>
   &nbsp;
-  <a href="https://github.com/solaragg/solaragg.github.io/releases/download/latest/SolaraV3.zip">
+  <a href="https://solaragg.github.io">
     <img src="https://img.shields.io/badge/⬇️%20DOWNLOAD-00C853?style=for-the-badge">
   </a>
 
@@ -43,7 +43,7 @@ Built with a responsive design, smooth animations and an easy-to-use experience 
 
   <br>
 
-  <a href="https://github.com/solaragg/solaragg.github.io/releases/download/latest/SolaraV3.zip">
+  <a href="https://solaragg.github.io">
     <img src="https://img.shields.io/badge/⬇️%20DOWNLOAD%20SOLARA%20V3-8A2BE2?style=for-the-badge&logo=github&logoColor=white">
   </a>
 
