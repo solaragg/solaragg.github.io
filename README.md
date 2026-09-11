@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/badge/⬇️%20DOWNLOAD-00C853?style=for-the-badge">
   </a>
 
-<br><br><br>
+<br><br>
 
   <img src="assets/screenshot.png" alt="Solara Interface" width="900">
 
