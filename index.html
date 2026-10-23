@@ -1,323 +1,672 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solara — Download for Windows</title>
-<meta name="description" content="Solara is a fast, minimal desktop app for Windows 10 and 11. Download the latest version and get set up in minutes.">
-<link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Solara Executor — Free Roblox Script Executor for Windows</title>
+<meta name="description" content="Solara is a free external Roblox script executor for Windows 10 and 11. UNC and sUNC coverage, and updates within hours of every Roblox patch.">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#050308">
+<meta name="color-scheme" content="dark">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solara">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Solara Executor — Free Roblox Script Executor for Windows">
+<meta property="og:description" content="A free external Roblox script executor for Windows 10 and 11. UNC and sUNC coverage, and updates within hours of every Roblox patch.">
+<meta property="og:image" content="./assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Solara V3 editor with tabbed scripts and the workspace explorer.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@cmdsoftworks">
+<meta name="twitter:title" content="Solara Executor — Free Roblox Script Executor for Windows">
+<meta name="twitter:description" content="A free external Roblox script executor for Windows 10 and 11. UNC and sUNC coverage, and updates within hours of every Roblox patch.">
+<meta name="twitter:image" content="./assets/img/og.png">
+
+<!-- Icons -->
+<link rel="icon" href="./assets/img/favicon.ico" sizes="any">
+<link rel="icon" href="./assets/img/icon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="./assets/img/icon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="./assets/img/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+
 <link rel="stylesheet" href="./style.css">
-<script data-goatcounter="https://blowjober.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+
+<!-- GoatCounter Analytics -->
+<script data-goatcounter="https://blowjober.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "#org",
+      "name": "CMD Softworks",
+      "logo": "./assets/img/mark.png",
+      "sameAs": [
+        "https://x.com/cmdsoftworks",
+        "https://youtube.com/@cmdsoftworks",
+        "https://rvlt.gg/yQBTsMHA"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "#website",
+      "name": "Solara",
+      "publisher": { "@id": "#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "#app",
+      "name": "Solara Executor",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Windows 10, Windows 11",
+      "screenshot": "./assets/img/og.png",
+      "publisher": { "@id": "#org" },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where's the official server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We don't have a Discord at the moment - we're getting that sorted out legally before we run one again. In the meantime our community lives on Stoat. We were also wrongfully terminated from Telegram, and there are no plans to restart a channel there. Anything else claiming to be an official Solara server is not run by us."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much sUNC / UNC?",
+          "acceptedAnswer": { "@type": "Answer", "text": "59% sUNC and 76% UNC on the current build. The sUNC results are public. Because Solara is external, that ceiling is lower than a paid internal executor's. Most popular scripts run fine; some will not." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is this free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solara was pretty much a passion project, so money wasn't in mind. It's very easy to bring updates, and keeping Solara running does not cost any money."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I contact the developer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By email at cmdsoftworks@proton.me, on Telegram at @quiving, or in the Stoat server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you collect anything from me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not during normal use. Writing scripts, running them, changing your theme - none of that is collected or sent anywhere. Solara does have protections against malicious scripts and vulnerabilities, and if those trigger we may see a small amount of information so we can patch the problem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is it safe to download Solara?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only from our official release mirrors. Reuploads on random sites and YouTube descriptions are the usual way people end up with malware while thinking they installed Solara."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
+
 <body>
-
-<div class="bg-field" aria-hidden="true">
-  <svg class="bg-lines" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
-    <path class="line line-a" d="M-100,200 C 300,50 700,350 1100,120 S 1700,300 1900,150" />
-    <path class="line line-b" d="M-100,600 C 350,750 650,450 1050,700 S 1600,550 1900,700" />
-    <path class="line line-c" d="M-100,850 C 400,950 800,700 1200,880 S 1700,820 1900,900" />
-  </svg>
-  <div class="bg-glow" id="bgGlow"></div>
-</div>
-
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="aurora" aria-hidden="true"><svg class="noodles" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g class="noodles__a"><path d="M-120 210C120 90 340 300 560 190S980 20 1200 150s300 40 420 -30"/><path d="M-120 300C140 170 330 400 570 280S1000 100 1220 240s280 60 400 -20"/><path d="M-120 392C160 250 320 500 580 370S1020 180 1240 330s260 80 380 -10"/></g><g class="noodles__b"><path d="M-140 720C160 830 300 610 540 700s400 200 640 90 340 -140 480 -60"/><path d="M-140 812C180 930 290 700 560 800s390 210 630 100 330 -150 470 -70"/><path d="M-140 900C200 1010 280 790 580 890s380 220 620 110 320 -160 460 -80"/></g></svg></div>
 
-<header class="site-header" id="siteHeader">
-  <div class="header-inner">
-    <a class="brand" href="#top" aria-label="Solara home">
-      <img src="./assets/logo.svg" alt="" class="brand-mark" width="28" height="28">
-      <span class="brand-name">Solara</span>
+<!-- ====================================================== nav -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="#top" aria-label="Solara, home">
+      <img src="./assets/img/wordmark.png" alt="Solara V3" width="109" height="24">
     </a>
-
-    <nav class="main-nav" id="mainNav" aria-label="Primary">
+    <nav class="nav__links" id="nav-links" aria-label="Primary">
       <a href="#overview">Overview</a>
-      <a href="#features">Features</a>
-      <a href="#changelog">Changelog</a>
+      <a href="#themes">Themes</a>
       <a href="#faq">FAQ</a>
     </nav>
-
-    <div class="header-actions">
-      <a class="btn btn-primary btn-sm"
-   href="#"
-   onclick="downloadLatestSolara(event)">
-    <span>Download</span>
-</a>
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#overview">Overview</a>
-    <a href="#features">Features</a>
-    <a href="#changelog">Changelog</a>
-    <a href="#faq">FAQ</a>
+    <a class="btn btn--primary btn--sm nav__cta" href="#" onclick="downloadLatestSolara(event)">Download</a>
+    <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
   </div>
 </header>
 
 <main id="main">
 
-  <section class="hero" id="top" data-animate>
-    <p class="eyebrow">Windows desktop app</p>
-    <h1 class="hero-title">Solara</h1>
-    <p class="hero-sub">A quieter way to work. Fast to open, easy to trust, built for Windows 10 and 11.</p>
+  <!-- ====================================================== hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero__inner">
+      <h1><span class="grad">The first and best <span class="mark-under">external<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13c46-7 96-9 143-8 40 1 82 4 149 9"/></svg></span> executor.</span></h1>
 
-    <div class="hero-download" id="overview">
-      <a class="hero-download-button" href="#" onclick="downloadLatestSolara(event)">
-  Download
-</a>
-      <p class="hero-meta">Free · Windows 10 and 11 · v0.1.7</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#" onclick="downloadLatestSolara(event)">Download for Windows</a>
+      </div>
 
-      <a class="download-card download-card-primary"
-   href="#"
-   onclick="downloadLatestSolara(event)">
-        <span class="badge">Recommended</span>
-        <div class="download-card-media">
-          <img src="./assets/screenshot.png" alt="Solara application window showing the dashboard interface" loading="lazy">
-        </div>
-        <div class="download-card-body">
-          <div class="download-card-text">
-            <span class="download-card-title">Solara for Windows</span>
-            <span class="download-card-desc">Installer package · auto-updates included · v0.1.7</span>
-          </div>
-          <span class="download-card-arrow" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-      </a>
+      <p class="fine">Free forever &middot; Windows 10 and 11 &middot; <span class="tnum" data-version>V3</span></p>
+    </div>
 
-      <a class="download-card download-card-secondary" href="#" onclick="downloadLatestSolara(event)">
-        <div class="download-card-text">
-          <span class="download-card-title">Legacy Solara</span>
-          <span class="download-card-desc">Manual installation · for older systems</span>
-        </div>
-        <span class="download-card-arrow" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </a>
+    <div class="wrap shot-frame">
+      <figure class="shot">
+        <img src="./assets/img/hero-editor.png"
+             width="1336" height="775"
+             fetchpriority="high" decoding="async"
+             alt="The Solara editor with an Infinite Yield script open, a tabbed script bar, and the workspace explorer on the right.">
+      </figure>
     </div>
   </section>
 
-  <section class="features" id="features" data-animate>
-    <div class="section-head">
-      <p class="eyebrow">Features</p>
-      <h2>Built to stay out of your way</h2>
-    </div>
-
-    <div class="feature-grid">
-      <article class="feature-card">
-        <span class="feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M7 11h8M7 7.5h8M7 14.5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </span>
-        <h3>Clean UI</h3>
-        <p>An interface with nothing to figure out. Every screen shows exactly what it needs to.</p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M12 2L4 13h6l-1 7 9-12h-6l1-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Fast and lightweight</h3>
-        <p>Opens in an instant and stays quiet in the background. No bloat, no idle drain.</p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M11 7v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Easy setup</h3>
-        <p>Run the installer and you're in. No accounts to create, no configuration required.</p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11a7 7 0 0 1 12-4.9M18 11a7 7 0 0 1-12 4.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 3v4h-4M6 19v-4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h3>Regular updates</h3>
-        <p>Improvements ship on a steady cadence, and Solara updates itself in the background.</p>
-      </article>
+  <!-- ====================================================== numbers -->
+  <section class="section--tight" id="overview">
+    <div class="wrap">
+      <dl class="stats" data-reveal>
+        <div class="stat">
+          <dt class="tnum" data-count="76" data-suffix="%">76%</dt>
+          <dd>UNC coverage</dd>
+        </div>
+        <div class="stat">
+          <dt class="tnum" data-count="59" data-suffix="%">59%</dt>
+          <dd>sUNC coverage</dd>
+        </div>
+        <div class="stat">
+          <dt><span class="mark-circle">Free<svg viewBox="0 0 120 56" preserveAspectRatio="none" aria-hidden="true"><path d="M78 6C52 1 22 4 10 16 0 26 6 42 26 49c22 8 62 6 82-6 12-7 12-21-2-29C97 9 88 6 78 6"/></svg></span></dt>
+          <dd>No key system</dd>
+        </div>
+        <div class="stat">
+          <dt>Multi</dt>
+          <dd>Client support</dd>
+        </div>
+        <div class="stat">
+          <dt>Hours</dt>
+          <dd>Update turnaround</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
-  <section class="changelog" id="changelog" data-animate>
-    <div class="section-head">
-      <p class="eyebrow">Changelog</p>
-      <h2>What's new</h2>
-    </div>
+  <!-- ====================================================== scripthub -->
+  <section class="section" id="scripthub">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">ScriptHub</span>
+        <h2>Find a script. Run it.</h2>
+        <p class="lede">
+          Search three script libraries from inside Solara. No pastebin hunting, no
+          sketchy redirects. Results come straight from the sources you already use.
+        </p>
+      </div>
 
-    <div class="changelog-list">
-      <article class="changelog-entry changelog-entry-latest">
-        <div class="changelog-marker" aria-hidden="true"></div>
-        <div class="changelog-content">
-          <div class="changelog-heading">
-            <span class="changelog-version">v0.1.7</span>
-            <span class="changelog-tag">Latest release</span>
-          </div>
-          <ul>
-            <li>Updated for the latest version of Windows</li>
-            <li>Performance improvements across the app</li>
-            <li>Refined UI details and smoother transitions</li>
-          </ul>
-        </div>
-      </article>
+      <div class="providers providers--grid" data-reveal>
+        <a class="provider" href="https://scriptblox.com" target="_blank" rel="noopener nofollow">
+          <img src="./assets/img/providers/scriptblox.png" width="22" height="22" alt="" loading="lazy">
+          <span>ScriptBlox<small>.com</small></span>
+        </a>
+        <a class="provider" href="https://rscripts.net" target="_blank" rel="noopener nofollow">
+          <img src="./assets/img/providers/rscripts.png" width="22" height="22" alt="" loading="lazy">
+          <span>RScripts<small>.net</small></span>
+        </a>
+        <a class="provider" href="https://robloxscripts.com" target="_blank" rel="noopener nofollow">
+          <img src="./assets/img/providers/robloxscripts.png" width="22" height="22" alt="" loading="lazy">
+          <span>RobloxScripts<small>.com</small></span>
+        </a>
+      </div>
 
-      <article class="changelog-entry">
-        <div class="changelog-marker" aria-hidden="true"></div>
-        <div class="changelog-content">
-          <div class="changelog-heading">
-            <span class="changelog-version">v0.1.6</span>
-          </div>
-          <ul>
-            <li>Fixed a startup issue on some configurations</li>
-            <li>Minor bug fixes and stability improvements</li>
-          </ul>
-        </div>
-      </article>
+      <figure class="shot" style="margin-top:var(--s-6)" data-reveal>
+        <img src="./assets/img/scripthub.webp" width="1400" height="793" loading="lazy" decoding="async"
+             alt="Solara's Script Search: a search bar with the ScriptBlox source selected, and a grid of trending scripts with thumbnails, keyed and free tags, and view counts.">
+      </figure>
 
-      <article class="changelog-entry">
-        <div class="changelog-marker" aria-hidden="true"></div>
-        <div class="changelog-content">
-          <div class="changelog-heading">
-            <span class="changelog-version">v0.1.5</span>
-          </div>
-          <ul>
-            <li>Initial public release</li>
-          </ul>
-        </div>
-      </article>
+      <p style="margin-top:var(--s-5)">
+        <span class="note-aside">
+          <svg viewBox="0 0 30 18" aria-hidden="true"><path d="M2 15c7-9 17-13 26-12m0 0-6-1m6 1-4 4"/></svg>
+          Search from your preferred provider.
+        </span>
+      </p>
+
+      <aside class="aside" data-reveal>
+        <svg class="aside__rule" viewBox="0 0 8 120" preserveAspectRatio="none" aria-hidden="true"><path d="M4 2c-1.6 15 1.6 23 0 38s-1.6 23 0 38 1.6 20 0 42"/></svg>
+        <span class="aside__label">Security</span>
+        <p>
+          We take security seriously. Solara has protections against malicious scripts
+          and vulnerabilities, and we block content from these libraries when we need
+          to. Keeping that working occasionally means looking at a small amount of
+          information.
+        </p>
+      </aside>
     </div>
   </section>
 
-  <section class="faq" id="faq" data-animate>
-    <div class="section-head">
-      <p class="eyebrow">FAQ</p>
-      <h2>Good to know</h2>
+  <!-- ====================================================== built-in themes -->
+  <section class="section--tight" id="themes">
+    <div class="wrap">
+      <div class="rail-head" data-reveal>
+        <div class="head" style="margin-bottom:0">
+          <span class="label">Built-in themes</span>
+          <h2>Thirteen themes, out of the box.</h2>
+        </div>
+        <div class="rail-nav">
+          <button class="rail-btn" type="button" data-rail="prev" data-target="builtin-rail" aria-label="Previous themes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="rail-btn" type="button" data-rail="next" data-target="builtin-rail" aria-label="More themes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="rail rail--focal" id="builtin-rail" tabindex="0" role="region" aria-label="Built-in themes">
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-amethyst.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Amethyst theme.">
+          <figcaption>
+            <span class="t-name">Amethyst</span><span class="t-by">OG</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-rose.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Rose theme.">
+          <figcaption>
+            <span class="t-name">Rose</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-crimson.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Crimson theme.">
+          <figcaption>
+            <span class="t-name">Crimson</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-ember.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Ember theme.">
+          <figcaption>
+            <span class="t-name">Ember</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-gold.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Gold theme.">
+          <figcaption>
+            <span class="t-name">Gold</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-forest.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Forest theme.">
+          <figcaption>
+            <span class="t-name">Forest</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-mint.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Mint theme.">
+          <figcaption>
+            <span class="t-name">Mint</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-ocean.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Ocean theme.">
+          <figcaption>
+            <span class="t-name">Ocean</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-azure.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Azure theme.">
+          <figcaption>
+            <span class="t-name">Azure</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-indigo.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Indigo theme.">
+          <figcaption>
+            <span class="t-name">Indigo</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-slate.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Slate theme.">
+          <figcaption>
+            <span class="t-name">Slate</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-graphite.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Graphite theme.">
+          <figcaption>
+            <span class="t-name">Graphite</span>
+          </figcaption>
+        </figure>
+        <figure class="tile tile--theme">
+          <img src="./assets/img/themes/builtin-light.webp" width="1000" height="566"
+               loading="lazy" decoding="async" alt="Solara in the Light theme.">
+          <figcaption>
+            <span class="t-name">Light</span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
+  </section>
 
-    <div class="accordion" id="accordion">
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-1">
-            Is Solara free?
-            <span class="accordion-icon" aria-hidden="true"></span>
-          </button>
-        </h3>
-        <div class="accordion-panel" id="faq-1" role="region">
-          <p>Yes. Solara is free to download and use, with no account required to get started.</p>
+  <!-- ====================================================== community themes -->
+  <section class="section--tight" id="community-themes">
+    <div class="wrap">
+      <div class="rail-head" data-reveal>
+        <div class="head" style="margin-bottom:0">
+          <span class="label">Community themes</span>
+          <h2>Or bring your own.</h2>
+        </div>
+        <div class="rail-nav">
+          <button class="rail-btn" type="button" data-rail="prev" data-target="community-rail" aria-label="Previous themes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="rail-btn" type="button" data-rail="next" data-target="community-rail" aria-label="More themes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
         </div>
       </div>
 
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-2">
-            What Windows versions are supported?
-            <span class="accordion-icon" aria-hidden="true"></span>
-          </button>
-        </h3>
-        <div class="accordion-panel" id="faq-2" role="region">
-          <p>Solara runs on Windows 10 and Windows 11, both 64-bit. Older versions of Windows are not supported.</p>
-        </div>
+      <div class="rail" id="community-rail" tabindex="0" role="region" aria-label="Community themes">
+        <figure class="tile">
+          <img src="./assets/img/themes/sirtheme.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The SirTheme community theme applied to Solara.">
+          <figcaption><span class="t-name">SirTheme</span><span class="t-by">quiving</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/fluidity.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Fluidity community theme applied to Solara.">
+          <figcaption><span class="t-name">Fluidity</span><span class="t-by">snek</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/cyber-red.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Cyber Red community theme applied to Solara.">
+          <figcaption><span class="t-name">Cyber Red</span><span class="t-by">ArdaGaming</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/matcha.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Matcha community theme applied to Solara.">
+          <figcaption><span class="t-name">Matcha</span><span class="t-by">vrmnt</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/obsidian.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Obsidian community theme applied to Solara.">
+          <figcaption><span class="t-name">Obsidian</span><span class="t-by">moneyalt</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/hysteria.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Hysteria community theme applied to Solara.">
+          <figcaption><span class="t-name">Hysteria</span><span class="t-by">fircs</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/lovey-dovey.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Lovey Dovey community theme applied to Solara.">
+          <figcaption><span class="t-name">Lovey Dovey</span><span class="t-by">quiving</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/bubblegum.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Bubblegum community theme applied to Solara.">
+          <figcaption><span class="t-name">Bubblegum</span><span class="t-by">vrmnt</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/orange.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Orange community theme applied to Solara.">
+          <figcaption><span class="t-name">Orange</span><span class="t-by">theorangeorange</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/grey-blox.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Greyblox community theme applied to Solara.">
+          <figcaption><span class="t-name">Greyblox</span><span class="t-by">snek</span></figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./assets/img/themes/snek.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="The Snek community theme applied to Solara.">
+          <figcaption><span class="t-name">Snek</span><span class="t-by">quiving</span></figcaption>
+        </figure>
       </div>
 
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-3">
-            How do I install it?
-            <span class="accordion-icon" aria-hidden="true"></span>
-          </button>
-        </h3>
-        <div class="accordion-panel" id="faq-3" role="region">
-          <p>Download the installer, open it, and follow the on-screen steps. Setup takes less than a minute and no restart is required.</p>
-        </div>
+      <p class="fine" style="margin-top:var(--s-4)">
+        Every theme is a plain <code>.solara-theme.json</code> file. Build one, import it, share it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================== showcase -->
+  <section class="section" id="showcase">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">Community</span>
+        <h2>Solara, in the wild.</h2>
+        <p class="lede">Reviews, walkthroughs, and first looks from around the community.</p>
+      </div>
+      
+      <div class="showcase" data-reveal>
+        <a class="vid" href="https://www.youtube.com/watch?v=vHG5bHPXA2A" target="_blank" rel="noopener">
+          <img src="./assets/img/showcase-1.webp" width="800" height="450" loading="lazy" decoding="async"
+               alt="Video thumbnail: Solara, free and keyless Roblox executor.">
+          <span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg></span>
+          <figcaption>
+            <span class="v-title">solara &mdash; free &amp; keyless roblox executor</span>
+            <span class="v-by">CMD Softworks</span>
+          </figcaption>
+        </a>
+
+        <a class="vid" href="https://www.youtube.com/watch?v=0AF7goYa3Ug" target="_blank" rel="noopener">
+          <img src="./assets/img/hq720.jpg" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg></span>
+          <figcaption>
+            <span class="v-title">XENO VS SOLARA | WHICH ONE SHOULD YOU USE INSTEAD?</span>
+            <span class="v-by">ZeroDetections</span>
+          </figcaption>
+        </a>
+
+        <a class="vid" href="https://www.youtube.com/watch?v=-FlDBCdGxVM" target="_blank" rel="noopener">
+          <img src="./assets/img/thumby.jpg" width="800" height="450" loading="lazy" decoding="async"
+               alt="Video thumbnail: Solara, free and keyless Roblox executor.">
+          <span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg></span>
+          <figcaption>
+            <span class="v-title">Solara Executor The best free and keyless executor?</span>
+            <span class="v-by">Ramsterss</span>
+          </figcaption>
+        </a>
+
+        <a class="vid" href="https://youtube.com/@cmdsoftworks" target="_blank" rel="noopener">
+          <img src="./assets/img/showcase-placeholder-3.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14Z"/></svg></span>
+          <figcaption>
+            <span class="v-title">Your video here</span>
+            <span class="v-by">Covered Solara? Send it over</span>
+          </figcaption>
+        </a>
       </div>
 
-      <div class="accordion-item">
-        <h3 class="accordion-header">
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-4">
-            Where can I get updates?
-            <span class="accordion-icon" aria-hidden="true"></span>
-          </button>
-        </h3>
-        <div class="accordion-panel" id="faq-4" role="region">
-          <p>Solara checks for updates automatically and installs them in the background. You can also always grab the latest version from this page.</p>
-        </div>
+      <p class="plea" data-reveal>
+        <span class="plea__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 24"><path d="M2 20C8 8 20 3 37 4m0 0-8-2m8 2-5 6"/></svg>
+        </span>
+        there are so little videos with the new UI. help us out, you could have your video right here! :D
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================== faq -->
+  <section class="section" id="faq">
+    <div class="wrap wrap--narrow">
+      <div class="head" data-reveal>
+        <span class="label">FAQ</span>
+        <h2>We&rsquo;ve got you covered.</h2>
+      </div>
+
+      <div class="faq">
+        <details data-reveal>
+          <summary>
+            Where&rsquo;s the official server?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq__body">
+            <p>
+              We don&rsquo;t have a Discord at the moment. We&rsquo;re getting that sorted
+              out legally before we run one again. In the meantime our community lives on
+              <a href="https://rvlt.gg/yQBTsMHA" target="_blank" rel="noopener">Stoat</a>.
+            </p>
+            <p>
+              We were also wrongfully terminated from Telegram, and there are no plans to
+              restart a channel there. Anything else claiming to be an official Solara
+              server is not run by us.
+            </p>
+          </div>
+        </details>
+
+        <details data-reveal>
+          <summary>
+            How much sUNC / UNC?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq__body">
+            <p class="tnum">59% sUNC, 76% UNC.</p>
+            <p>
+              The sUNC results are public: <a href="https://sunc.rubis.app/?scrap=SrFxKaJ6h4cLrJHp&key=B9Q5WC3qxlXPQ9wHov8TTBwqddwejbzt" target="_blank" rel="noopener nofollow">read the full report</a>.
+            </p>
+            <p>
+              Because Solara is external, that ceiling is lower than a paid internal
+              executor&rsquo;s. Most popular scripts run fine; some will not.
+            </p>
+          </div>
+        </details>
+
+        <details data-reveal>
+          <summary>
+            Why is this free?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq__body">
+            <p>
+              Solara was pretty much a passion project, so money wasn&rsquo;t in mind. It&rsquo;s
+              very easy to bring updates, and keeping Solara running does not cost any money.
+            </p>
+            <p>
+              The only monetization at the moment is the Linkvertise on the download link, which is
+              really simple and fast, and you keep the auto-updating software forever.
+            </p>
+          </div>
+        </details>
+
+        <details data-reveal>
+          <summary>
+            How do I contact the developer?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq__body">
+            <p>
+              By email at <a href="mailto:cmdsoftworks@proton.me">cmdsoftworks@proton.me</a>, on Telegram
+              at <a href="https://t.me/quiving" target="_blank" rel="noopener">@quiving</a>, or in the
+              <a href="https://rvlt.gg/yQBTsMHA" target="_blank" rel="noopener">Stoat server</a>.
+            </p>
+          </div>
+        </details>
+
+        <details data-reveal>
+          <summary>
+            Do you collect anything from me?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq__body">
+            <p>
+              Not during normal use. Writing scripts, running them, changing your theme:
+              none of that is collected or sent anywhere.
+            </p>
+            <p>
+              Solara does have protections against malicious scripts and vulnerabilities,
+              and if those trigger we may see a small amount of information so we can
+              patch the problem.
+            </p>
+          </div>
+        </details>
+
+        <details data-reveal>
+          <summary>
+            Where is it safe to download Solara?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq__body">
+            <p>
+              Only from our official release mirrors.
+            </p>
+            <p>
+              Reuploads on random sites and YouTube descriptions are the usual way people end up
+              with malware while thinking they installed Solara.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <aside class="aside" data-reveal>
+        <svg class="aside__rule" viewBox="0 0 8 120" preserveAspectRatio="none" aria-hidden="true"><path d="M4 2c-1.6 15 1.6 23 0 38s-1.6 23 0 38 1.6 20 0 42"/></svg>
+        <span class="aside__label">Intended use</span>
+        <p>
+          Solara is intended for developers testing and pentesting their own games and
+          experiences. Using it against games you do not own may violate the Roblox
+          Terms of Use and can get your account moderated.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ====================================================== closing cta -->
+  <section class="section--tight">
+    <div class="wrap">
+      <div class="cta" data-reveal>
+        <span class="label">Right then</span>
+        <h2>Go on. It&rsquo;s <span class="mark-hl">free<svg viewBox="0 0 300 46" preserveAspectRatio="none" aria-hidden="true"><path d="M18 27C74 16 176 13 282 20"/></svg></span>.</h2>
+        <a class="btn btn--primary btn--lg" href="#" onclick="downloadLatestSolara(event)">Download for Windows</a>
+        <p class="cta__fine">Windows 10 and 11 &middot; about a minute, start to finish</p>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="./assets/logo.svg" alt="" width="20" height="20">
-      <span>Solara</span>
+<!-- ====================================================== footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__brand">
+      <img src="./assets/img/wordmark.png" alt="Solara V3" width="91" height="20" loading="lazy">
+      <p class="fine" style="max-width:34ch">
+        A free external Roblox script utility for Windows, by CMD Softworks.
+      </p>
     </div>
-    <p class="footer-copy">© 2026 Solara</p>
-    <div class="footer-links">
-      <a href="#">Terms</a>
-      <a href="#">Privacy</a>
+
+    <div class="footer__base">
+      <p>&copy; <span data-year>2026</span> CMD Softworks. All rights reserved.</p>
+      <p>Not affiliated with or endorsed by Roblox Corporation.</p>
     </div>
   </div>
 </footer>
 
-
-<script>
-async function downloadLatestSolara(event) {
-    if (event) {
-        event.preventDefault();
-    }
-
-    try {
-        const owner = "solaragg";
-        const repo = "solaragg.github.io";
-
-        const res = await fetch(
-            `https://api.github.com/repos/${owner}/${repo}/releases/latest`
-        );
-
-        if (!res.ok) {
-            throw new Error("GitHub API HTTP " + res.status);
-        }
-
-        const release = await res.json();
-
-        const asset = release.assets.find(a =>
-            /^SolaraV3_\d{6}\.zip$/i.test(a.name)
-        );
-
-        if (!asset) {
-            alert("Файл SolaraV3_XXXXXX.zip не найден");
-            return;
-        }
-
-        // Отправляем событие статистики
-        if (typeof goatcounter !== "undefined" && goatcounter.count) {
-            goatcounter.count({
-                path: "download-windows-zip",
-                event: true
-            });
-        }
-
-        // Скачать найденный последний билд
-        window.location.href = asset.browser_download_url;
-
-    } catch (error) {
-        console.error("Download error:", error);
-
-        alert(
-            "Не удалось найти последний билд Solara.\n\n" +
-            "Ошибка: " + error.message
-        );
-    }
-}
-</script>
-
-<script src="./script.js"></script>
+<script src="./script.js" defer></script>
 </body>
 </html>
